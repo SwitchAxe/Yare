@@ -1,0 +1,7 @@
+type symbol = | Number of int
+              | String of string
+              | Identifier of string
+              | Function of (string list) * (symbol list)
+              | List of symbol list;;
+
+

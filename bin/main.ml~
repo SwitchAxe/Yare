@@ -1,0 +1,11 @@
+open Yare.Lexer
+
+let print_token ((a, b): token * string) =
+  match (a, b) with
+  | (Token(t), s) -> "(" ^ t ^ ", " ^ s ^ ")"
+  | (Error(t), s) -> "(Error " ^ t ^ ", " ^ s ^ ")";;
+
+let () = "miao(lalala)"
+         |> accept_identifier
+         |> print_token
+         |> print_endline;;

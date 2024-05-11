@@ -40,6 +40,7 @@ let accept_letter (s: string) = accept
 
 let rec accept_number (s: string) : token * string =
   match (accept_digit s) with
+  | (Token(_), "") as x -> x
   | (Token(_), r) as x -> x ++ (accept_number r)
   | (Error(_), _) as y -> y;; 
 
@@ -52,6 +53,7 @@ let accept_identifier(s: string) : token * string =
   in
   let rec aux s =
     match (accept s (fun (c) -> not (List.mem c special))) with
+    | (Token(_), "") as tp -> tp
     | (Token(_), s') as tp -> tp ++ (aux s')
     | (Error(_), _) as tp -> tp
   in aux s;;

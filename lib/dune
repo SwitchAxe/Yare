@@ -1,2 +1,3 @@
 (library
- (name Yare))
+ (name Yare)
+ (flags (:standard -warn-error "-unused-value-declaration")))
